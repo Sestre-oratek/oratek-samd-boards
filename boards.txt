@@ -1,0 +1,47 @@
+# Copyright (c) 2014-2017 Arduino LLC.  All right reserved.
+#
+# This library is free software; you can redistribute it and/or
+# modify it under the terms of the GNU Lesser General Public
+# License as published by the Free Software Foundation; either
+# version 2.1 of the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU Lesser General Public License for more details.
+#
+# You should have received a copy of the GNU Lesser General Public
+# License along with this library; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+
+
+# Arduino MKR GSM 1400
+# --------------------
+soya-g.name=Arduino MKR GSM 1400
+soya-g.vid.0=0x2341
+soya-g.pid.0=0x8052
+soya-g.vid.1=0x2341
+soya-g.pid.1=0x0052
+
+soya-g.debug.tool=gdb-openocd
+soya-g.upload.tool=bossac
+soya-g.upload.protocol=sam-ba
+soya-g.upload.maximum_size=262144
+soya-g.upload.maximum_data_size=32768
+soya-g.upload.use_1200bps_touch=true
+soya-g.upload.wait_for_upload_port=true
+soya-g.upload.native_usb=true
+soya-g.build.mcu=cortex-m0plus
+soya-g.build.f_cpu=48000000L
+soya-g.build.usb_product="Oratek SOYA-G"
+soya-g.build.usb_manufacturer="Oraket"
+soya-g.build.board=ORATEK_SOYA-G
+soya-g.build.core=arduino
+soya-g.build.extra_flags=-DUSE_ARDUINO_MKR_PIN_LAYOUT -D__SAMD21G18A__ {build.usb_flags} -DUSE_BQ24195L_PMIC
+soya-g.build.ldscript=linker_scripts/gcc/flash_with_bootloader.ld
+soya-g.build.openocdscript=openocd_scripts/arduino_zero.cfg
+soya-g.build.variant=soya-g
+soya-g.build.vid=0x2341
+soya-g.build.pid=0x8052
+soya-g.bootloader.tool=openocd
+soya-g.bootloader.file=soya-g/samd21_sam_ba_arduino_mkrgsm1400.bin
