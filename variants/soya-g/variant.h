@@ -40,7 +40,7 @@
 extern "C" unsigned int PINCOUNT_fn();
 #endif
 #define PINS_COUNT           (PINCOUNT_fn())
-#define NUM_DIGITAL_PINS     (15u)
+#define NUM_DIGITAL_PINS     (19u)
 #define NUM_ANALOG_INPUTS    (7u)
 #define NUM_ANALOG_OUTPUTS   (1u)
 
@@ -64,28 +64,37 @@ extern "C" unsigned int PINCOUNT_fn();
 // #define digitalPinToTimer(P)
 
 //Battery
-#define ADC_BATTERY	(32u)
+#define ADC_BATTERY	(36u)   // Not a pin
 
 //GSM
-#define GSM_RTS    (28u)
-#define GSM_CTS    (29u)
-#define GSM_RESETN (31u)
+#define GSM_RTS    (30u)
+#define GSM_CTS    (31u)
+#define GSM_RESETN (32u)
 #define GSM_DTR    (35u)
 
 // LEDs
 // ----
 #define PIN_LED     (6u)
 #define LED_BUILTIN PIN_LED
+#define LR          (4u)
+#define LG          (5u)
+#define LB          (6u)
 
 // Analog pins
 // -----------
-#define PIN_A0 (15u)
-#define PIN_A1 (16u)
-#define PIN_A2 (17u)
-#define PIN_A3 (18u)
-#define PIN_A4 (19u)
-#define PIN_A5 (20u)
-#define PIN_A6 (21u)
+#define PIN_A0  (22u)
+#define PIN_A1  (23u)
+#define PIN_A2  (24u)
+#define PIN_A3  (25u)
+#define PIN_A4  (2u)
+#define PIN_A5  (3u)
+#define PIN_A6  (6u)
+#define PIN_A7  (7u)
+#define PIN_A8  (8u)
+#define PIN_A9  (9u)
+#define PIN_A10 (10u)
+#define PIN_A11 (15u)
+#define PIN_A12 (16u)
 static const uint8_t A0  = PIN_A0;
 static const uint8_t A1  = PIN_A1;
 static const uint8_t A2  = PIN_A2;
@@ -93,17 +102,23 @@ static const uint8_t A3  = PIN_A3;
 static const uint8_t A4  = PIN_A4;
 static const uint8_t A5  = PIN_A5;
 static const uint8_t A6  = PIN_A6;
+static const uint8_t A7  = PIN_A7;
+static const uint8_t A8  = PIN_A8;
+static const uint8_t A9  = PIN_A9;
+static const uint8_t A10 = PIN_A10;
+static const uint8_t A11 = PIN_A11;
+static const uint8_t A12 = PIN_A12;
 #define ADC_RESOLUTION 12
 
 // SPI Interfaces
 // --------------
 #define SPI_INTERFACES_COUNT 1
- 
+
 // SPI
-#define PIN_SPI_MISO  (10u)
-#define PIN_SPI_MOSI  (8u)
-#define PIN_SPI_SCK   (9u)
-#define PIN_SPI_SS    (4u)
+#define PIN_SPI_SCK   (19u)
+#define PIN_SPI_MOSI  (20u)
+#define PIN_SPI_MISO  (21u)
+#define PIN_SPI_SS    (18u)
 #define PERIPH_SPI    sercom1
 #define PAD_SPI_TX    SPI_PAD_0_SCK_1
 #define PAD_SPI_RX    SERCOM_RX_PAD_3
@@ -118,8 +133,8 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 #define WIRE_INTERFACES_COUNT 1
 
 // Wire
-#define PIN_WIRE_SDA        (11u)
-#define PIN_WIRE_SCL        (12u)
+#define PIN_WIRE_SCL        (15u)
+#define PIN_WIRE_SDA        (16u)
 #define PERIPH_WIRE         sercom2
 #define WIRE_IT_HANDLER     SERCOM2_Handler
 static const uint8_t SDA = PIN_WIRE_SDA;
@@ -129,8 +144,8 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 // ---
 #define PIN_USB_DM          (22ul)
 #define PIN_USB_DP          (23ul)
-#define PIN_USB_HOST_ENABLE (24ul)
-#define PMIC_IRQ_PIN        (30ul)
+#define PIN_USB_HOST_ENABLE (36u)   // Not a pin
+#define PMIC_IRQ_PIN        (36u)   // Not a pin
 
 // I2S Interfaces
 // --------------
@@ -138,7 +153,7 @@ static const uint8_t SCL = PIN_WIRE_SCL;
 
 #define I2S_DEVICE          0
 #define I2S_CLOCK_GENERATOR 3
-#define PIN_I2S_SD          (PIN_A6)
+#define PIN_I2S_SD          (10u)
 #define PIN_I2S_SCK         (2u)
 #define PIN_I2S_FS          (3u)
 
@@ -158,20 +173,27 @@ extern SERCOM sercom5;
 
 // Serial1
 extern Uart Serial1;
-#define PIN_SERIAL1_RX (13ul)
-#define PIN_SERIAL1_TX (14ul)
-#define PAD_SERIAL1_TX (UART_TX_PAD_2)
+#define PIN_SERIAL1_RX (11ul)
+#define PIN_SERIAL1_TX (12ul)
 #define PAD_SERIAL1_RX (SERCOM_RX_PAD_3)
+#define PAD_SERIAL1_TX (UART_TX_PAD_2)
 
 // Serial2 - GSM
 extern Uart Serial2;
-#define PIN_SERIAL2_RX (27ul)
-#define PIN_SERIAL2_TX (26ul)
-#define PAD_SERIAL2_TX (UART_TX_RTS_CTS_PAD_0_2_3)
+#define PIN_SERIAL2_RX (28ul)
+#define PIN_SERIAL2_TX (29ul)
 #define PAD_SERIAL2_RX (SERCOM_RX_PAD_1)
-#define PIN_SERIAL2_RTS (28u)
-#define PIN_SERIAL2_CTS (29u)
+#define PAD_SERIAL2_TX (UART_TX_RTS_CTS_PAD_0_2_3)
+#define PIN_SERIAL2_RTS (30u)
+#define PIN_SERIAL2_CTS (31u)
 #define PIN_SERIAL2_DTR (35u)
+
+// Serial3
+extern Uart Serial3;
+#define PIN_SERIAL3_RX (13ul)
+#define PIN_SERIAL3_TX (14ul)
+#define PAD_SERIAL3_RX (SERCOM_RX_PAD_3)
+#define PAD_SERIAL3_TX (UART_TX_PAD_2)
 
 #endif // __cplusplus
 

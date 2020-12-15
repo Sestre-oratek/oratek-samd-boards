@@ -15,9 +15,9 @@
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
-# Arduino MKR GSM 1400
+# Oratek SOYA-G
 # --------------------
-soya-g.name=Arduino MKR GSM 1400
+soya-g.name=Oratek SOYA-G
 soya-g.vid.0=0x2341
 soya-g.pid.0=0x8052
 soya-g.vid.1=0x2341
